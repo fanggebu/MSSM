@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!--创建域-->
+    <bean id="authRealm" class="cn.qiuhen.shiro.MyRealm"></bean>
+
+    <!--创建安全认证管理器-->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="authRealm"></property>
+        <!--注入缓存管理器-->
+        <property name="cacheManager" ref="cacheManager"/>
+    </bean>
+
+    <!--注册缓存管理器: 这里用ehcache插件(已被shiro集成)-->
+    <bean id="cacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+        <!--指定ehcache配置文件-->
+        <property name="cacheManagerConfigFile" value="classpath:config/ehcache.xml"/>
+    </bean>
+
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager"></property>
+        <property name="loginUrl" value="/user/login.action"></property>
+        <property name="unauthorizedUrl" value="error.jsp"></property>
+        <property name="filterChainDefinitions">
+            <value>
+                <!--对静态资源不拦截-->
+                /static/*=anon
+                /user/login.action=anon
+                /user/toLogin.action=anon
+                /user/error.action=anon
+                /user/index.action=anon
+                <!--配置/user/list.do只有有user权限的用户才能访问
+                /user/list.do=perms[user:list]
+                -->
+                <!--声明/user/logout.do使用logout的过滤器
+                该过滤器会自动帮我们清除退出登录时要清除的东西
+                -->
+                /people/logout.do=logout
+                /*=authc
+                /*/*=authc
+            </value>
+        </property>
+    </bean>
+</beans>

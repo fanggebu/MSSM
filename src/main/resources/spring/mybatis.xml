@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	<!-- 类型别名 （typeAliases），必须配置文件的开始部分 -->
+	<typeAliases>
+		<!-- 可以指定一个包名，mybatis会在包名下面搜索需要的javaBean， -->
+		<package name="cn.qiuhen.domain"/>
+	</typeAliases>
+	<!-- 加载映射文件 -->
+	<mappers>
+<!--		<package name="cn.qiuhen.dao"/>-->
+		<mapper resource="mybatis/BookMapper.xml"></mapper>
+	</mappers>
+</configuration>
