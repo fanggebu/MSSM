@@ -33,7 +33,7 @@ public class HomeController {
 //        bookService.add();                                               //执行添加
         ModelAndView mav = new ModelAndView();                           //模型视图
         mav.addObject("user", "name");     //设置返回的模拟数据
-        mav.setViewName("/hello");                                       //设置返回视图模版
+        mav.setViewName("/index");                                       //设置返回视图模版
         return mav;
     }
 }

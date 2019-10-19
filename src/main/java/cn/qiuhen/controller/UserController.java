@@ -41,18 +41,18 @@ public class UserController {
      */
     @RequestMapping(method = RequestMethod.POST, value = "/login.action")
     public String login(User user, Model model, String remember) {
-        System.out.println("用户执行了登录");
         ModelAndView view = new ModelAndView("loginerro");
         String msg = "";
         Subject subject = SecurityUtils.getSubject();
         UsernamePasswordToken token = new UsernamePasswordToken(user.getUsername(), user.getPassword(), user.getUsername());
-        if (remember != null) {
+       /* if (remember != null) {
             if (remember.equals("记住我")) {//记住我
                 token.setRememberMe(true);
             }
-        }
+        }*/
         try {
             subject.login(token);
+            log.info(user.getUsername()+"登录成功");
             return "redirect:/home/index.action";
         } catch (IncorrectCredentialsException e) {
             model.addAttribute("errorMsg", "抱歉，您的密码有误");
@@ -89,7 +89,7 @@ public class UserController {
 
     @GetMapping("/login.action")
     public String login() {
-        System.out.println("执行了页面切换");
+    	log.info("执行了页面切换");
         return "user/login";
     }
     @GetMapping("/register")

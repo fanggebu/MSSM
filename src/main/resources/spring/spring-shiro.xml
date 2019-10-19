@@ -36,7 +36,7 @@
                 <!--声明/user/logout.do使用logout的过滤器
                 该过滤器会自动帮我们清除退出登录时要清除的东西
                 -->
-                /people/logout.do=logout
+                /user/logout.action=logout
                 /*=authc
                 /*/*=authc
             </value>

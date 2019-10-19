@@ -12,5 +12,6 @@
 	<mappers>
 <!--		<package name="cn.qiuhen.dao"/>-->
 		<mapper resource="mybatis/BookMapper.xml"></mapper>
+		<mapper resource="mybatis/UserMapper.xml"></mapper>
 	</mappers>
 </configuration>
