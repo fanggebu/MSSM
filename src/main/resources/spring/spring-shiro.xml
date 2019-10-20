@@ -26,6 +26,7 @@
             <value>
                 <!--对静态资源不拦截-->
                 /static/*=anon
+                /receiverSMS.action=anon
                 /user/login.action=anon
                 /user/toLogin.action=anon
                 /user/error.action=anon
