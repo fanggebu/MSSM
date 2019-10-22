@@ -101,9 +101,11 @@ public class UserController {
         return "redirect:user/login";
     }
     @GetMapping("/user_list.action")
+    @ResponseBody
     public RestMsg userList(User user) {
     	RestMsg rest = new RestMsg();
     	rest.setCode(0);
+    	rest.setCount(100);
     	rest.setData(userSer.userList(user));
     	return rest;
     }

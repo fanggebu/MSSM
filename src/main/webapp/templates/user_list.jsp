@@ -69,6 +69,7 @@
 				} ],
 				title : '用户数据表',
 				cols: [[
+					{type : 'checkbox',fixed : 'left'},
 				      {field:'id', width:80, title: 'ID', sort: true}
 				      ,{field:'username', width:80, title: '用户名'}
 				      ,{field:'sex', width:80, title: '性别', sort: true}
@@ -77,7 +78,8 @@
 				      ,{field:'experience', width:80, title: '积分', sort: true}
 				      ,{field:'score', width:80, title: '评分', sort: true}
 				      ,{field:'classify', width:80, title: '职业'}
-				      ,{field:'wealth', width:135, title: '财富', sort: true}
+				      ,{field:'wealth', width:135, title: '财富', sort: true},
+				      {fixed : 'right',title : '操作',toolbar : '#barDemo',width : 150}
 				    ]],
 				/* cols : [ [ {
 					type : 'checkbox',

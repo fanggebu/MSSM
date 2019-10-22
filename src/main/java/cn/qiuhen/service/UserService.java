@@ -39,7 +39,10 @@ public class UserService {
 	}
 
 	public List<User> userList(User user) {
-		int page = (user.getPage()-1)*10+1;
+		int page = 1;
+		if(user.getPage()!=1) {
+		  page = (user.getPage()-1)*10+1;
+		}
 		int nextpage = 10;
 		return userDao.userList(page,nextpage);
 	}

@@ -173,8 +173,8 @@
 			<artifactId>commons-net</artifactId>
 			<version>3.5</version>
 		</dependency>
-	
-	
+
+
 		<!-- 日志文件管理包 -->
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -242,7 +242,19 @@
 			<version>2.1</version>
 			<scope>provided</scope>
 		</dependency>
-
+		<!-- 返回值Java对象转json -->
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.9.8</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.9.8</version>
+		</dependency>
 
 
 
