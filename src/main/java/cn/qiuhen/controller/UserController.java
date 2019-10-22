@@ -15,13 +15,12 @@ import cn.qiuhen.domain.RestMsg;
 import cn.qiuhen.domain.User;
 import cn.qiuhen.service.UserService;
 
-import java.io.UnsupportedEncodingException;
 
 
 /**
- * @author Hans
+ * @author kangjian
  * @todo
- * @time 2018下午6:34:04
+ * @time 2019下午6:34:04
  */
 @Controller
 @RequestMapping("/user")
@@ -101,8 +100,12 @@ public class UserController {
     public String register(User user){
         return "redirect:user/login";
     }
-    public RestMsg userList() {
-    	return null;
+    @GetMapping("/user_list.action")
+    public RestMsg userList(User user) {
+    	RestMsg rest = new RestMsg();
+    	rest.setCode(0);
+    	rest.setData(userSer.userList(user));
+    	return rest;
     }
     public String logout(){
         return "redirect:user/login";
