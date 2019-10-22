@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import cn.qiuhen.domain.XmlResponse;
 import cn.qiuhen.domain.Xms;
 
 /**
@@ -24,11 +25,20 @@ public class XmsController {
 
 	@RequestMapping(value = "/receiverSMS.action", method = RequestMethod.POST, consumes = "application/xml")
 	@ResponseBody
-	public Map<String, Object> receiverSMS(@RequestBody Xms restSms) {
+	public XmlResponse receiverSMS(@RequestBody Xms restSms) {
 		HashMap<String, Object> result = new HashMap<String, Object>();
 		log.info("回调参数：" + restSms.toString());
-
-		return result;
+		String xmlBody = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n" + 
+				"<msg v=\"协议版本\" id=\"消息序列号(不可重复)\">\r\n" + 
+				"  <head>\r\n" + 
+				"<agentid>商户编号</agentid>\r\n" + 
+				"    <cmd>命令码</cmd>\r\n" + 
+				"    <timestamp>时间戳</timestamp>\r\n" + 
+				"    <cipher>校验码(MD5(加密消息体))</cipher>\r\n" + 
+				"  </head>\r\n" + 
+				"  <body>请求/响应消息体</body>\r\n" + 
+				"</msg>";
+		return new XmlResponse();
 	}
 
 }

@@ -59,7 +59,7 @@
 
 			table.render({
 				elem : '#test',
-				url : '${pageContext.request.contextPath}/templates/user_list.json',
+				url : '${pageContext.request.contextPath}/user/user_list.action',
 				toolbar : '#toolbarDemo' //开启头部工具栏，并为其绑定左侧模板
 				,
 				defaultToolbar : [ 'filter', 'exports', 'print', { //自定义头部工具栏右侧图标。如无需自定义，去除该参数即可
@@ -68,7 +68,18 @@
 					icon : 'layui-icon-tips'
 				} ],
 				title : '用户数据表',
-				cols : [ [ {
+				cols: [[
+				      {field:'id', width:80, title: 'ID', sort: true}
+				      ,{field:'username', width:80, title: '用户名'}
+				      ,{field:'sex', width:80, title: '性别', sort: true}
+				      ,{field:'city', width:80, title: '城市'}
+				      ,{field:'sign', title: '签名', minWidth: 150}
+				      ,{field:'experience', width:80, title: '积分', sort: true}
+				      ,{field:'score', width:80, title: '评分', sort: true}
+				      ,{field:'classify', width:80, title: '职业'}
+				      ,{field:'wealth', width:135, title: '财富', sort: true}
+				    ]],
+				/* cols : [ [ {
 					type : 'checkbox',
 					fixed : 'left'
 				}, {
@@ -127,7 +138,7 @@
 					title : '操作',
 					toolbar : '#barDemo',
 					width : 150
-				} ] ],
+				} ] ], */
 				page : true
 			});
 

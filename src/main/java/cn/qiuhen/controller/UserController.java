@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import cn.qiuhen.domain.RestMsg;
 import cn.qiuhen.domain.User;
 import cn.qiuhen.service.UserService;
 
@@ -100,7 +101,9 @@ public class UserController {
     public String register(User user){
         return "redirect:user/login";
     }
-
+    public RestMsg userList() {
+    	return null;
+    }
     public String logout(){
         return "redirect:user/login";
     }
