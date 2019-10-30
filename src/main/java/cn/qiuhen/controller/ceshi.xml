@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<msg v="协议版本" id="消息序列号(不可重复)">
+	<head>
+		<agentid>商户编号</agentid>
+		<cmd>命令码</cmd>
+		<timestamp>时间戳</timestamp>
+		<cipher>校验码(MD5(加密消息体))</cipher>
+	</head>
+
+	<body>
+		<order lotteryid="彩种ID" issue="期号">
+			<ticket seq="票流水号">玩法_投注方式_投注内容_倍数_投注金额</ticket>
+			<ticket seq="票流水号">玩法_投注方式_投注内容_倍数_投注金额</ticket>
+		</order>
+	</body>
+</msg>
+
+
+
